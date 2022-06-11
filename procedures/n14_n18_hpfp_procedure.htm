@@ -1,0 +1,887 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Beisan Systems - Procedures - N14/N18 HPFP Procedure</title>
+<style>
+<!--
+p.MsoHeader, li.MsoHeader, div.MsoHeader {
+	font-size: 12.0pt;
+	font-family: "Times New Roman", "serif";
+}
+p.MsoFooter, li.MsoFooter, div.MsoFooter {
+	font-size: 12.0pt;
+	font-family: "Times New Roman", "serif";
+}
+a:link, span.MsoHyperlink {
+	color: blue;
+	text-decoration: underline;
+}
+a:visited, span.MsoHyperlinkFollowed {
+	color: purple;
+	text-decoration: underline;
+}
+p {
+	font-size: 12.0pt;
+	font-family: "Times New Roman", "serif";
+}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate {
+	font-size: 8.0pt;
+	font-family: "Tahoma", "sans-serif";
+}
+div.WordSection1 {
+	page: WordSection1;
+}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+<div class=WordSection1>
+  <p><b><span style='font-size:16.0pt'>N14/N18 High Pressure Fuel
+    Pump Procedure (Mini Cooper S)</span></b><br>
+    <br>
+  </p>
+  <p><i><span style='color:red'>The following information is
+    provided for reference purposes only and should be used at your own risk.<br>
+    In no event shall Beisan Systems, LLC or its members be liable for incidental,
+    consequential, or special loss or damages of any kind however caused.</span></i><br>
+    <br>
+  </p>
+  <p><b><span style='font-size:14.0pt'>Introduction</span></b><br>
+    <br>
+  </p>
+  <p>An automotive high pressure fuel pump is a device that
+    generates very high fuel pressure for the engine. The fuel tank electric fuel
+    pump pressurizes fuel to ~4 bar (~60 psi). A high pressure fuel pump further
+    pressurizes this fuel to ~200 bar (~3k psi). This high pressure fuel is used
+    for engine direct fuel injection (inside cylinder fuel injection), and
+    facilitates high precision fuel control for optimal engine function and
+    efficient fuel consumption. A high pressure fuel pump is a mechanical device,
+    as high mechanical forces are needed to produce such high fuel pressures. It is
+    normally connected to and driven by the engine.<br>
+    <br>
+    The N14/N18 high pressure fuel pump is a rotary type pump that utilizes
+    hydraulic fluid (oil) for the pumping action. The rotor on the pump, which is
+    driven by the engine, is connected to and turns a swash plate (slanted disk).
+    As the swash plate rotates it causes the reciprocation of hollow spring loaded
+    pistons in/out of cylinders. The hydraulic fluid filled pistons expand and
+    deflate bellows (balloons) as they pump and then release hydraulic fluid in/out
+    of the bellows. The bellows expansion presses on fuel, in a fuel chamber,
+    causing a check valve to open and accept the pressurized fuel into the high
+    pressure fuel rail. The bellows deflation draws fuel, in the same fuel chamber,
+    causing a second check valve to open and allow in new unpressurized fuel from
+    the low pressure fuel supply. There are 3 sets of pumping piston, spring,
+    cylinder, bellow, fuel chamber, in/out check valves. An electronic solenoid,
+    driven by a PWM (pulse width modulation) signal, controls the fuel flow into
+    the pump and thus in turn the high pressure fuel output of the pump into the
+    high pressure fuel rail.<br>
+    <br>
+    The N14/N18 HPFP (high pressure fuel pump) experiences one primary failure. The
+    bellows’ upper collar incorporates a small O-ring which separates the fuel
+    chamber from the pump hydraulic fluid chamber. This O-ring fails and allows
+    fuel to seep into the hydraulic fluid chamber. The hydraulic fluid then becomes
+    contaminated and this changes its functional characteristics which causes the
+    HPFP to malfunction. The contaminated hydraulic fluid becomes excessively thin
+    and this allows it to leak past the pistons when the pistons are pumped to fill
+    and expand the bellows to pressurize the fuel. As the hydraulic fluid becomes
+    more and more degraded, the pump fuel pressure further and further reduces,
+    eventually causing notable engine performance symptoms.<br>
+    <br>
+    The bellow O-ring failure is due to degradation from high pressure fuel.
+    Although the HPFP housing is designed to expose the bellow O-ring to minimal
+    fuel pressure, in application the O-ring is still exposed to levels of fuel
+    pressure it cannot endure. The O-ring experiences two degradations. Primarily,
+    it experiences significant compression set (permanent flattening). This reduces
+    the O-ring sealing force and allows leakage. Secondarily, the O-ring loses
+    material, either from shredding or from abrasion, depending on the O-ring
+    material, and this further allows leakage. It is also likely the O-ring low
+    temperature operation limit is also a failure point. At temperatures below
+    operating temperature limit an O-ring rubber will not seal well and will allow
+    leakage.<br>
+    <br>
+    The bellow O-ring has been redesigned multiple times by BMW (ContiTech). Beisan
+    has found 4 O-ring designs from inspecting used failed HPFPs.<br>
+    The following is a list of the O-rings, 1-4, oldest to newest design, with a
+    description of the O-ring and its seeming failure mode.<br>
+    <br>
+    O-ring 1 is a standard O-ring design and is likely made from Viton 75 durometer
+    (hardness). It is relatively thin and thus will easily leak from moderate
+    compression set created from the fuel high pressure.<br>
+    O-ring 2 is a custom design O-ring and is likely made from Viton 70 durometer.
+    Although the design is seemingly quite good, the low durometer makes is
+    susceptible to compression set and shredding form the fuel high pressure.<br>
+    O-ring 3 is a standard design O-ring and is likely made from Viton 75
+    durometer. It is relatively thick and is cut when installed. It has the benefit
+    of better filling the bellow O-ring cavity. But it also experiences compression
+    set and shredding.<br>
+    O-ring 4 is a standard design O-ring and is likely made from Fluorosilicone 75
+    durometer. It is relatively thin and experiences significant compression set
+    and material loss from abrasion. The change in material from Viton to Fluorosilicone,
+    which is a combination of Viton and Silicon, is an indication the design change
+    was made to address low temperature operation, as Viton operates down to -15F
+    (-26C) and Fluorosilicone operates down to -70F (-56C).<br>
+    <br>
+    The following is a discussion of the bellow O-ring needed features and the BMW
+    O-rings design failures.<br>
+    <br>
+    Viton (fluorocarbon, FKM) is an almost optimal O-ring material. It is resistant
+    to most chemicals and has an upper operating temperature of 400F (200C). It has
+    the best compression set resistance of all the O-ring rubber materials. It is
+    not susceptible to tearing or abrasion. Its only weak point is a lower
+    operating temperature of -15F (-26C). But of recent times, rubber manufacturers
+    are offering Viton versions that operate down to -24F (-31C) and -40F (-40C),
+    reducing the fluorine content from 69% to 67%. BMW used Fluorosilicone rubber
+    instead of low temperature Viton to address cold region requirements. But Fluorosilicone
+    is significantly more susceptible to compression set (flattening) and abrasion
+    than Viton. A better choice of material would have been low temperature Viton.<br>
+    <br>
+    Standard rubber durometer (hardness) is 75 Shore A scale. High pressure
+    applications are known to cause O-ring leakage, compression set, and rubber
+    shredding/abrasion. The solution is the use of high durometer rubber. A high
+    durometer rubber provides higher compression forces to prevent leakage,
+    significantly lower compression set (flattening), and higher resistance to
+    shredding/abrasion. Viton is available in a high hardness 90 durometer. BMW did
+    not use 90 durometer rubber with any of the bellow O-ring versions.<br>
+    <br>
+    Pressure is measured in force per square area. Thus minimizing the O-ring area
+    exposed to the high fuel pressure will minimize the forces on the O-ring and in
+    turn degradation. The BMW bellow O-rings are not only experiencing ID (inner
+    diameter) radial compression set (flattening), they are also experiencing one
+    sided axial compression set. This side compression set is an indication of fuel
+    entering the bellow O-ring cavity and pressing against the side of the O-ring.
+    A normal design round O-ring allows for this, but a custom design O-ring, like
+    the BMW bellow O-ring 2 with flat sides, can fill the bellow O-ring cavity
+    space and prevent the fuel filling and pressing. Unfortunately BMW used a low
+    durometer rubber on the O-ring 2 design and this caused its failure.<br>
+    <br>
+    Contemporary fuels are blends with ethanol/methanol and this can be corrosive
+    to O-ring rubber. Viton is now available in ethanol/methanol resistant
+    versions.<br>
+    <br>
+    An N14/N18 HPFP seals repair kit and associate HPFP tools can be acquired from
+    Beisan Systems, <a href="http://www.beisansystems.com">www.beisansystems.com</a>.
+    The bellow O-ring is made from Viton, 90 durometer, -40F (-40C) operation,
+    ethanol/methanol resistant. The physical design has flat sides with width .02mm
+    smaller than the bellow O-ring cavity, and arced ID &amp; OD for compression
+    force. The O-ring size is the maximum material fit. The design achieves full
+    O-ring cavity fill with maximum rubber compression force. The solenoid O-rings
+    are Viton, 80 durometer, -40F (-40C) operation, ethanol/methanol resistant. The
+    dome and body O-rings are Viton 80 durometer. The rotary seal is Viton
+    durometer 75 and is the same as the original part.<br>
+    <br>
+  </p>
+  <p><b><span style='font-size:14.0pt'>Symptoms</span></b><br>
+    <br>
+  </p>
+  <p><b><span style='font-size:14.0pt'>Diagnosis</span></b><br>
+    <br>
+  </p>
+  <p><b><span style='font-size:14.0pt'>Repair Procedure</span></b><br>
+    <br>
+  </p>
+  <p>The following is a Mini Cooper S HPFP (high pressure fuel
+    pump) rebuild R&amp;R (remove and replace) procedure.<br>
+    <br>
+    Repair time: 4 hours mechanic, 5+ hours DIY.<br>
+    <br>
+  </p>
+  <p><u><span style='font-size:14.0pt'>Parts, Tools, and Shop
+    Supplies</span></u><br>
+    <br>
+  </p>
+  <p>Parts with part number pattern xx-xx-x-xxx-xxx are BMW parts
+    and can be acquired from a BMW dealership.<br>
+    Beisan Systems only provides the throttle actuator gears and throttle actuator
+    press nut.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image001.jpg"><br>
+    N14/N18 HPFP seals repair kit (BS102) $45/each (www.beisansystems.com)<br>
+    <br>
+    Note: N14/N18 seals kit bellow O-rings are not same as N53/N54 seals kit bellow
+    O-rings, and should not be exchanged. N14/N18 bellow O-rings are .025mm thicker
+    than N53/N54 bellow O-rings.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image002.jpg"><br>
+    HPFP tools (BS192) $55/each (www.beisansystems.com)</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image003.jpg"></p>
+  <p>N14/N18 HPFP swashplate shaft socket (BS193) $5/each (www.beisansystems.com)<br>
+    <br>
+    Note: Socket is Craftsman 10mm 12 point 1/2” socket (CMMT44232). It is a unique
+    size and other 10mm 12 point sockets don’t work.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image004.jpg"><br>
+    Soft vise jaw liners (BS091) $15/each (www.beisansystems.com)</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image005.jpg"><br>
+    4” table mounted vise.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image006.jpg"><br>
+    22mm socket 1/2”, 18mm socket 1/2”, 3/8” to 1/2” socket adapter<br>
+    T25 torx bit socket 1/4&quot;, T20 torx bit socket 1/4&quot;, 3/8” to 1/4”
+    socket adapter<br>
+    3/8” chisel, bent head pick tool (for O-rings removal)<br>
+    1/2” short-arm ratchet, 3/8” short-arm ratchet<br>
+    1” wide adjustable wrench, small medium-nose pliers<br>
+    2 lb handheld sledgehammer<br>
+    3/8” torque wrench (10 Nm [7 ft-lb]), 55 Nm [40.5 ft-lb]) (not shown)</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image007.jpg"><br>
+    Bar type bearing puller (small) (OTC 4518)</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image008.jpg"><br>
+    20V impact driver, impact driver 1/2&quot; socket adapter</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image009.jpg"><br>
+    Paper towels, water based cleaner (simple green 10:1), brake cleaner, CHF 11S
+    synthetic oil (3 oz)<br>
+    Container (6”x4”x2”), 1 cup pouring receptacle, oil lubricant w/ dropper
+    (3-in-one), parts plate<br>
+    <br>
+  </p>
+  <p><u><span style='font-size:14.0pt'>Repair</span></u><br>
+    <br>
+  </p>
+  <p>Car engine must be cold to perform repair procedure.<br>
+    <br>
+  </p>
+  <p><i>Right and Left denotations are from car front at hood
+    orientation.</i><br>
+    <br>
+  </p>
+  <p><u><span style='font-size:14.0pt'>Rebuilding of HPFP</span></u><br>
+    <br>
+  </p>
+  <p>Perform following work on table to prevent parts from
+    falling and being damaged.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image010.jpg"><br>
+    Spray clean HPFP external body (brake cleaner / towels).<br>
+    <br>
+  </p>
+  <p><u>Removal of solenoid</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image011.jpg"><br>
+    Place HPFP on vise anvil with solenoid at top and rear (picture).<br>
+    Rotate rotor to contact vise for better stability (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image012.jpg"><br>
+    Remove solenoid mounting bolts.<br>
+    Remove 2 bolts (T25 torx bit socket 1/4&quot; w/ 3/8” to 1/4” socket adapter / 3/8”
+    ratchet).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image013.jpg"><br>
+    Pry up and remove solenoid bracket.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image014.jpg"><br>
+    Remove solenoid.<br>
+    Wiggle, pry up, and remove solenoid (pick tool).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image015.jpg"><br>
+    Remove fuel from bottom of solenoid cylinder.<br>
+    Fold and roll towel and insert into solenoid cylinder to soak up fuel at bottom
+    of cylinder (towels).<br>
+    <br>
+  </p>
+  <p><u>Removal of dome rotor</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image016.jpg"><br>
+    Open vise jaws to the limit.<br>
+    Install soft vise jaw liners with horizontal notch liner on right and multiple
+    notches liner on left (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image017.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image018.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image019.jpg"><br>
+    Mount HPFP in vise.<br>
+    Orient HPFP with rotor at top and oil overflow pod at front left (picture).<br>
+    Slide back left vise liner to be just behind left bolt mount protrusion.<br>
+    Position HPFP to have little space between vise and oil overflow pod (picture).<br>
+    Note: Space is needed to protect oil overflow pod.<br>
+    Lay HPFP flat on vise base and verify it’s not tilted.<br>
+    Strongly tighten vise jaws onto HPFP.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image020.jpg"><br>
+    Mount bearing puller small base on rotor.<br>
+    Center puller base with rotor sides and tighten base onto rotor bottom
+    (picture).<br>
+    Note: Base hand tightening is sufficient.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image021.jpg"><br>
+    Mount bearing puller poles on bearing base (picture).<br>
+    Note: Poles hand tightening is sufficient.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image022.jpg"><br>
+    Mount bearing puller cross member with spindle on bearing puller poles
+    (picture).<br>
+    Place washers on poles at top and bottom of cross member (picture).<br>
+    Mount nuts on poles to secure cross member (picture).<br>
+    Note: Keep nuts slightly loose to allow spindle alignment in next step.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image023.jpg"><br>
+    Thread bearing puller spindle down into rotor shaft (picture).<br>
+    Shift bearing puller cross member as needed to align spindle with rotor center
+    shaft.<br>
+    Note: Verify spindle end is inside rotor center diameter and is not overlapping
+    rotor.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image024.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image025.jpg"><br>
+    Tighten bearing puller spindle to pull up on rotor (18mm socket 1/2&quot; / 1/2&quot;
+    ratchet).<br>
+    Counter hold puller cross member to keep puller from turning (hand).<br>
+    Spindle will press into rotor center shaft and puller base will pull up and
+    dislodge rotor from shaft.<br>
+    <br>
+  </p>
+  <p><u>Removal of dome brackets</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image026.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image027.jpg"><br>
+    Remove dome O-ring.<br>
+    Press on O-ring from opposite sides to push O-ring out of cavity, then pull
+    O-ring off dome (fingers).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image028.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image029.jpg"><br>
+    Remove dome bracket mounting bolts.<br>
+    Remove 3 dome bracket mounting bolts (T20 torx bit socket 1/4&quot; w/ 3/8” to
+    1/4” socket adapter / 3/8” ratchet).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image030.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image031.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image032.jpg"><br>
+    Pull up on and remove dome mounting bracket(s) (hands).<br>
+    <br>
+  </p>
+  <p><u>Removal of dome</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image033.jpg"><br>
+    Remount HPFP in vise.<br>
+    Open vise jaws and remove HPFP.<br>
+    Position vise liners center on vise jaws.<br>
+    Insert HPFP in vise with dome down.<br>
+    Position dome centered at left vise liner center notch (feel).<br>
+    Position vise jaws on dome end flat section (picture).<br>
+    Strongly tighten vise jaws onto HPFP dome.<br>
+    Place folded towels in vise under dome (towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image034.jpg"><br>
+    Remove HPFP body from HPFP dome.<br>
+    Tilt side to side and pull HPFP body until it dislodges from dome.<br>
+    Note: Dome is mounted to HPFP body by an O-ring, and this can be difficult to
+    dislodge.<br>
+    When dome is removed, piston parts will likely stick to done swash plate due to
+    magnetized parts (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image035.jpg"><br>
+    Place piston parts in container.<br>
+    Cover dome with towels from vise, and remove from vise and turn right side up
+    to drain oil into towels.<br>
+    Place dome with towels in container.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image036.jpg"><br>
+    Remove HPFP body sealing O-ring from dome.<br>
+    Press on O-ring from opposite sides to push O-ring out of cavity, then pull
+    O-ring off dome (fingers).<br>
+    <br>
+  </p>
+  <p><u>Parts cleaning and removal of rotary seal</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image037.jpg"><br>
+    Disassemble and clean dome and piston parts (brake cleaner / towels).<br>
+    Component inside dome is swashplate with shaft.<br>
+    Piston components are piston, spring, and cap.<br>
+    <br>
+  </p>
+  <p>Spray clean HPFP cylinders and body (brake cleaner /
+    towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image038.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image039.jpg"><br>
+    Mount HPFP in vise.<br>
+    Orient HPFP with cylinders at top and oil overflow pod at front left (picture).<br>
+    Slide back left vise liner to be just behind left bolt mount protrusion.<br>
+    Position HPFP to position overflow pod a small distance from vise (picture).<br>
+    Note: Space is needed to protect oil overflow pod.<br>
+    Lay HPFP flat on vise base and verify it’s not tilted.<br>
+    Strongly tighten vise jaws onto HPFP.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image040.jpg"><br>
+    Mount dome on HPFP body (picture).<br>
+    Note: Dome mounting is temporary and is needed to hold dome for rotary seal
+    removal in following step.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image041.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image042.jpg"><br>
+    Remove rotary seal from dome.<br>
+    Insert pry tool into rotary seal just under rotary seal top (3/8” chisel).<br>
+    Hit down on end of pry tool to leverage against dome and pry out rotary seal from
+    dome (2lb sledgehammer).<br>
+    <br>
+  </p>
+  <p>Remove dome from HPFP body.<br>
+    Note: If dome if stuck on HPFP body, tilt from several direction to release.<br>
+    <br>
+  </p>
+  <p>Clean dome rotary seal cavity (brake cleaner / towels).<br>
+    <br>
+  </p>
+  <p><u>Removal of piston cylinders</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image043.jpg"><br>
+    Mount 4 pin socket onto a cylinder.<br>
+    As needed, tilt socket from side to side to facilitate pins insertion.<br>
+    Verify socket mates fully to cylinder face.<br>
+    If socket not fully matted with cylinder, hit socket to further insert pins (2
+    lb sledgehammer).<br>
+    <br>
+    Note: Socket must be fully seated onto cylinder face.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image044.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image045.jpg"><br>
+    Remove HPFP cylinder.<br>
+    Mount impact driver on 4 pin socket (impact driver / 1/2&quot; socket adapter).<br>
+    Set impact driver to reverse rotation.<br>
+    Assure 4 pin socket is fully matted to cylinder face.<br>
+    Engage impact drive to unscrew cylinder from HPFP.<br>
+    Note: Engage impact driver for 3 seconds at a time until cylinder thread seize
+    breaks.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image046.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image047.jpg"><br>
+    Repeat above two steps to remove second cylinder.<br>
+    <br>
+  </p>
+  <p><u>Removal of bellows</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image048.jpg"><br>
+    Insert bellow puller (bolt/nut) into a bellow.<br>
+    Thread puller nut onto puller bolt with nut hex oriented to bolt head
+    (picture).<br>
+    Thread nut most of the way onto bolt (picture).<br>
+    Insert bolt straight into a bellow and turn slightly to initially engage bellow
+    (picture).<br>
+    <br>
+    Note: Puller will be threaded into bellow in next step.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image049.jpg"><br>
+    Thread puller bolt into bellow.<br>
+    Note: Bolt is tapered at end which allows threading into bellow head inner
+    diameter.<br>
+    Note: Bolt threading is very slight and does not affect bellow function.<br>
+    Significantly press down on puller bolt head (hand palm) while rotating bolt
+    head (adjustable wrench).<br>
+    Perform bolt press and rotation 3 times to achieve an approximate full bolt
+    rotation.<br>
+    Note: Maintain bolt straightness and do not allow to tilt.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image050.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image051.jpg"><br>
+    Remove bellow from HPFP body.<br>
+    Thread puller nut down onto HPFP body (fingers).<br>
+    Tighten bellow puller nut onto HPFP body until bellow pulls (pops) out of body
+    (adjustable wrench).<br>
+    <br>
+    Note: If puller bolt disconnects from bellow and does not remove bellow, repeat
+    above step for remounting puller bolt into bellow and current step to pull bellow.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image052.jpg"><br>
+    Remove puller bolt from bellow.<br>
+    Thread puller nut down onto bellow (fingers).<br>
+    Counter hold puller nut and unscrew puller bolt (adjustable wrench, 22mm
+    1/2&quot; socket / 1/2&quot; ratchet).<br>
+    <br>
+  </p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image053.jpg"><br>
+    Repeat above 4 steps to remove second bellow.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image054.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image055.jpg"><br>
+    Remove spring at bottom of each body cylinder (small medium-nose pliers).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image056.jpg"><br>
+    Remove fuel from bottom of body cylinders.<br>
+    Fold and roll towel and insert into each body cylinder to soak up fuel at
+    bottom of cylinder (towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image057.jpg"><br>
+    Remove O-ring from bellow.<br>
+    Press in and push out on O-ring from opposite sides, and pull O-ring off bellow
+    (picture).<br>
+    <br>
+    Note: Do not use tools to remove bellow O-ring as this can scratch and damage bellow.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image058.jpg"><br>
+    Repeat above O-ring removal step for second bellow.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image059.jpg"><br>
+    Clean bellows O-ring cavity (brake cleaner / towels).<br>
+    <br>
+    Note: If O-ring is yellow (Fluorosilicone), significant cleaning is needed to
+    fully remove material.<br>
+    Note: It is important to fully clean bellows’ O-ring cavity. Verify last
+    cleaning has no material removed.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image060.jpg"><br>
+    Clean body cylinders threads and O-ring matting surface (brake cleaner /
+    towels).<br>
+    Body cylinders O-ring matting surface is below threads and above ledge.<br>
+    <br>
+    Note: If O-ring is yellow (Fluorosilicone), significant cleaning is needed to
+    fully remove material.<br>
+    Note: It is important to fully clean cylinders’ O-ring matting surface. Verify
+    last cleaning has no material removed.<br>
+    <br>
+  </p>
+  <p><u>Installation of bellows</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image061.jpg"><br>
+    Install bellow springs in body cylinders (small medium-nose pliers).<br>
+    Note: Bellow spring has identical ends and can be installed on either end.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image062.jpg"></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image063.jpg"><br>
+    Install new custom O-ring on bellow.<br>
+    Insert O-ring (inner side) in bellow cavity on one side, then stretch O-ring
+    and drop into cavity on opposite side (fingers).<br>
+    Note: O-ring will need significant stretching to install.<br>
+    <br>
+    If an O-ring section is twisted and protruding from cavity, press in and push
+    out on O-ring on each side of problem section to lift out section and then drop
+    back down straight into cavity.<br>
+    Verify O-ring is fully seated in bellow cavity by holding bellow at O-ring and
+    rotating bellow to feel any improper O-ring seating (fingers).<br>
+    Note: It is critical that O-ring be installed fully straight and not twisted.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image064.jpg"><br>
+    Repeat above O-ring installation step for second bellow.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image065.jpg"><br>
+    Apply light lubricant to body cylinder bellow O-ring matting surface (oil /
+    finger).<br>
+    Body cylinder O-ring matting surface is below threads and above ledge.<br>
+    Note: Be sure to lubricant slope just below threads.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image066.jpg"><br>
+    Apply light lubricant to bellow O-ring (oil / fingers).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image067.jpg"><br>
+    Insert lubricated bellow in lubricated body cylinder.<br>
+    Note: Verify spring is mounted correctly in cylinder before inserting bellow.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image068.jpg"><br>
+    Repeat above cylinder and bellow O-ring lubrication and insertion steps for
+    second body cylinder and bellow.<br>
+    <br>
+  </p>
+  <p><u>Installation of cylinders and pistons</u><br>
+    <br>
+  </p>
+  <p>Spray clean cylinders (brake cleaner / towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image069.jpg"><br>
+    Insert 2 cylinders inside 2 bellows.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image070.jpg"><br>
+    Thread cylinders into HPFP body.<br>
+    Tighten 2 cylinders (4 pin socket / 1/2” ratchet).<br>
+    Note: Down pressure on cylinder is needed to engage first thread.<br>
+    Note: Tightening of cylinders presses down and mounts bellows into body
+    cylinders.<br>
+    Half way into cylinder threading, notable resistance will be encountered. Resistance
+    is due to compression of bellow O-ring as it is pressed into its tighter mount
+    location. Higher force is needed to complete tightening.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image071.jpg"><br>
+    Fully tighten 2 piston cylinders, 55 Nm (40.5 ft-lb) (4 pin socket / 3/8”
+    torque wrench &amp; 3/8” to 1/2&quot; socket adapter).<br>
+    <br>
+  </p>
+  <p>Clean HPFP cylinders recess area (brake cleaner / towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image072.jpg"><br>
+    Apply light lubricant to HPFP cylinder recess wall (oil / finger).<br>
+    Note: Light lubricant will help with installation of dome in upcoming step.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image073.jpg"><br>
+    Mount pistons.<br>
+    Insert 2 sets of piston spring, piston, and piston cap in cylinders.<br>
+    Lightly lubricate piston before mounting (oil / fingers).<br>
+    <br>
+    Press down and release each piston to verify reciprocation movement.<br>
+    <br>
+  </p>
+  <p><u>Installation of dome</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image074.jpg"><br>
+    Mount swash plate onto pistons.<br>
+    Orient swash plate with side large holes centered at front (picture).<br>
+    Place swash plate on pistons. Swash plate will tilt down to rear (picture).<br>
+    Verify piston cap tops are matted flat with swash plate.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image075.jpg"><br>
+    Install new dome sealing O-ring.<br>
+    Insert O-ring (inner side) in O-ring cavity on one side of dome, then stretch
+    O-ring and drop into cavity on opposite side dome (fingers).<br>
+    Verify O-ring is not twisted.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image076.jpg"><br>
+    Lightly lubricate dome sealing O-ring (oil / fingers).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image077.jpg"><br>
+    Place dome over swash plate.<br>
+    Tilt dome to rear and mount over swash plate (picture).<br>
+    Verify dome mounts correctly over swashplate with swashplate shaft at center
+    and protruding from dome cylinder (picture).<br>
+    <br>
+  </p>
+  <p>Clean 2 dome mounting brackets and 3 dome mounting bolts
+    (brake cleaner / towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image078.jpg"><br>
+    Install dome small mounting bracket.<br>
+    Place bracket, with rolled outer edges up, onto dome and rotate to align bolt
+    mounting holes with HPFP body bolt mounting holes (picture).<br>
+    Note: Bracket and bolt holes are symmetrical, thus there is no special
+    rotational position.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image079.jpg"><br>
+    If N14, Install dome large mounting bracket.<br>
+    Orient bracket with bolt holes recesses up and long extension to rear of HPFP
+    (picture).<br>
+    Place bracket onto dome and align bolt mounting holes with lower bracket and HPFP
+    body bolt mounting holes (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image080.jpg"><br>
+    Initially install dome bracket 2 rear mounting bolts.<br>
+    Align bracket(s) and initially thread bracket 2 rear mounting bolts (T20 torx bit
+    socket 1/4&quot; w/ 3/8” to 1/4” socket adapter).<br>
+    <br>
+    Note: Present step picture and following three step pictures only show N14 with
+    second bracket. N18 is same steps but without second bracket.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image081.jpg"><br>
+    Install dome bracket front mounting bolt.<br>
+    Press down on bracket front and initially thread front bolt (T20 torx bit
+    socket 1/4&quot; w/ 3/8” to 1/4” socket adapter).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image082.jpg"><br>
+    Tighten dome mounting bolts.<br>
+    Evenly tighten 3 dome mounting bolts to evenly draw dome to HPFP body (T20 torx
+    bit socket 1/4&quot; w/ 3/8” to 1/4” socket adapter / 3/8” ratchet).<br>
+    <br>
+    Note: Full bolt tightening is performed in next step.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image083.jpg"><br>
+    Fully tighten dome mounting bolts<br>
+    Fully tighten 3 dome mounting bolts, 10 Nm (7 ft-lb) (T20 torx bit socket 1/4&quot;
+    w/ 3/8” to 1/4” socket adapter / 3/8” torque wrench).<br>
+    Note: Tighten bolts in multiple passes. Verify one pass with all bolts fully tightened.<br>
+    <br>
+  </p>
+  <p><u>Filling of HPFP with oil</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image084.jpg"><br>
+    Mount swashplate shaft socket.<br>
+    Place socket on swashplate shaft and hit multiple times to press onto shaft
+    ~3mm (~1/8”) (picture) (10mm 12 point 1/2” socket / 2lb sledgehammer).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image085.jpg"><br>
+    Rotate swashplate to verify pistons function and to assess socket straightness.<br>
+    Turn swashplate socket clockwise approximately two rotations (hand).<br>
+    Note: Piston parts may initially stick. Rotating swashplate should rectify any
+    issues.<br>
+    Hit socket tool from top as needed to rectify its straighten to shaft (2 lb
+    sledgehammer).<br>
+    Note: Precise straightness of socket is not necessary.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image086.jpg"><br>
+    Fill pouring cup ~1/4 (2 oz) full with HPFP oil (CHF 11S).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image087.jpg"><br>
+    Pour HPFP oil into HPFP.<br>
+    Mate pouring cup to swashplate socket and pour oil into dome.<br>
+    Fill oil until oil rises to almost top of dome cavity. Exact level is not
+    important.<br>
+    Note: ~.23 oz of oil is filled. Exact amount is not important.<br>
+    <br>
+    Filled oil will drain into HPFP and air bubbles will rise up.<br>
+    This will take time and patience.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image088.jpg"><br>
+    Repeat above step of filling oil and draining into HPFP.<br>
+    On ~7th fill, oil will not drain into HPFP (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image089.jpg"><br>
+    Mount driver on swashplate socket (impact driver &amp; 1/2&quot; socket
+    adapter).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image090.jpg"><br>
+    Spin swashplate socket clockwise until oil drains into HPFP (impact driver
+    &amp; 1/2&quot; socket adapter).<br>
+    Note: Initially spin swashplate slowly and then increase speed steadily until
+    oi drains into HPFP.<br>
+    Note: Remaining oil at bottom of cavity will need to be left without spinning
+    to slowly bubble and drain into HPFP.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image091.jpg"><br>
+    Repeat above step of filling oil and draining into HPFP by spinning swashplate socket.<br>
+    On the ~7th fill and spin (~13 total fills), oil will not drain into HPFP
+    (picture).<br>
+    Note: Once emptied, fill pouring cup ~1/8 (2 oz) full with HPFP oil (CHF 11S).<br>
+    Note: HPFP will take ~3/8 cup (3 oz) oil in total.<br>
+    <br>
+    Verify oil will not further drain into HPFP by spinning swashplate at tool highest
+    speed (impact driver). This verifies HPFP is full of oil and all air is
+    removed.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image092.jpg"><br>
+    Remove swashplate shaft socket.<br>
+    Pull and tilt socket in multiple directions until socket comes off shaft (1/2”
+    ratchet).<br>
+    <br>
+  </p>
+  <p><u>Installation of rotary seal and rotor</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image093.jpg"><br>
+    Mount new rotary seal onto swashplate shaft (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image094.jpg"><br>
+    Place rotary seal punch tool upside down on rotary seal (picture).<br>
+    Center punch inner diameter on seal inner seal lip (feel).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image095.jpg"><br>
+    Hit rotary seal punch to press rotary seal into HPFP dome (2 lb sledgehammer).<br>
+    Repeat hit until punch fully mattes with dome top surface.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image096.jpg"><br>
+    Remove rotary seal punch and inspect rotary seal.<br>
+    Rotary seal will be installed even with dome top (picture).<br>
+    <br>
+    Clean HPFP dome area (brake cleaner / towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image097.jpg"><br>
+    Place rotary seal punch tool right side up on rotary seal (picture).<br>
+    Center punch inner diameter on rotary seal inner seal lip (feel).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image098.jpg"><br>
+    Hit rotary seal punch to press rotary seal into HPFP dome (2 lb sledgehammer).<br>
+    Repeat hits until punch inserts ~1mm into dome (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image099.jpg"><br>
+    Remove rotary seal punch and inspect rotary seal.<br>
+    Rotary seal top will be installed ~1mm into dome and be located at end of dome
+    inner diameter chamfer (bevel) (picture).<br>
+    <br>
+    Clean HPFP dome area (brake cleaner / towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image100.jpg"><br>
+    Place rotor on swashplate shaft with tabs pointing down (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image101.jpg"><br>
+    Hit rotor several times to initially install rotor on swashplate shaft (2 lb
+    sledgehammer).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image102.jpg"><br>
+    Remove HPFP from vise jaws and place on vise anvil with rotor at top (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image103.jpg"><br>
+    Strike rotor repeatedly to install onto swashplate shaft (2lb sledgehammer).<br>
+    Note: Progressive significant striking will be needed to fully install rotor on
+    shaft.<br>
+    Rotor is fully installed once swashplate shaft reaches top of rotor (picture).<br>
+    <br>
+    Note: Indentations from rotor installation will be found on dome (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image104.jpg"><br>
+    Install new dome O-ring.<br>
+    Clean O-ring mounting location (brake cleaner / towels).<br>
+    Mount O-ring on one side of dome, then stretch O-ring and mount on opposite
+    side of dome (fingers).<br>
+    Push O-ring down into mounting cavity (fingers).<br>
+    Verify O-ring is not twisted.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image105.jpg"><br>
+    Lightly lubricate dome O-ring (oil / fingers).<br>
+    <br>
+  </p>
+  <p><u>Installation of solenoid</u></p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image106.jpg"><br>
+    Inspect solenoid O-rings.<br>
+    Notice small O-ring at end, medium O-ring at middle, and large O-ring at base.<br>
+    Notice small O-ring is installed adjacent to plastic washer and O-ring is positioned
+    closer to solenoid end than plastic washer.</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image107.jpg"><br>
+    Remove solenoid O-rings.<br>
+    Pry, stretch, pull, and roll 3 O-rings off solenoid (pick tool).<br>
+    <br>
+    Clean solenoid (brake cleaner / towels).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image108.jpg"><br>
+    Install new O-rings on solenoid.<br>
+    Stretch, roll and mount 3 O-rings on solenoid.<br>
+    Position small O-ring at end groove, medium O-ring at middle groove, and large
+    O-ring at base.<br>
+    Small O-ring mounts closer to end than associate plastic washer.<br>
+    Slide large O-ring to base.<br>
+    <br>
+    Verify O-rings are not twisted and small and medium O-rings are at approximate
+    center of groove.<br>
+    <br>
+    Apply light lubricant to 3 solenoid O-rings (oil / fingers).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image109.jpg"><br>
+    Place HPFP on vise anvil with solenoid port at top and rear (picture).<br>
+    Rotate rotor to contact vise for better stability (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image110.jpg"><br>
+    Mount solenoid on HPFP.<br>
+    Orient solenoid connector to rear left and insert solenoid in HPFP (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image111.jpg"><br>
+    Mount solenoid bracket on solenoid.<br>
+    Orient solenoid bracket with indentation to bottom and slot to rear left and
+    slide over solenoid (picture).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image112.jpg"><br>
+    Mount solenoid bolts.<br>
+    Insert 2 solenoid bolts in solenoid bracket and align bracket and initially
+    thread bolts into HPFP (fingers).</p>
+  <p><img border=0 width=512 height=384
+src="n14_n18_hpfp_procedure_files/image113.jpg"><br>
+    Tighten 2 solenoid bolts evenly to draw solenoid evenly to HPFP (T25 torx bit
+    socket 1/4&quot; w/ 3/8” to 1/4” socket adapter / 3/8” ratchet).<br>
+    <br>
+    Fully tighten 2 solenoid bolts, 12 Nm (8 ft-lb) (T25 torx bit socket 1/4&quot; w/
+    3/8” to 1/4” socket adapter / 3/8” torque wrench).<br>
+    <br>
+    Remove HPFP from vise.<br>
+    <br>
+  </p>
+  <p><u><span style='font-size:14.0pt'>Post repair procedures</span></u><br>
+    <br>
+  </p>
+  <p>© Copyright 2022 Beisan Systems, LLC<br>
+    <br>
+  </p>
+</div>
+</body>
+</html>
