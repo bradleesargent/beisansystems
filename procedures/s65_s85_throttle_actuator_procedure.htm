@@ -1,0 +1,1024 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Beisan Systems - Procedures - S65/S85 Throttle Actuator Procedure</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:16.0pt'>S65/S85 Throttle Actuator Procedure
+(E9X M3, E60 M5)</span></b><br>
+<br>
+</p>
+
+<p class=MsoNormal><i><span style='color:red'>The following information is
+provided for reference purposes only and should be used at your own risk.<br>
+In no event shall Beisan Systems, LLC or its members be liable for incidental,
+consequential, or special loss or damages of any kind however caused.</span></i><br>
+<br>
+</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Introduction</span></b><br>
+<br>
+</p>
+
+<p class=MsoNormal>An automotive throttle actuator is an electromechanical
+device that actuates (positions) the opening of an engine throttle. An engine
+throttle is a valve that controls the air intake into the engine. A throttle is
+normally a spring loaded, default position closed, butterfly valve. The S65/S85
+engine has 8/10 cylinders and is a V engine. Thus there are two engine head
+banks with each having 4/5 cylinders. Each cylinder has a dedicated throttle. Thus
+each bank has 4/5 throttles. These 4/5 throttles are controlled simultaneously
+by a single mechanical rail that controls their position identically. Each
+throttle rail, with row of 4/5 throttles, is controlled by a single throttle
+actuator. Therefore there are 2 throttle actuators, one for each engine bank.<br>
+<br>
+The S65/S85 throttle actuator is an intelligent device with a microcontroller,
+which includes microprocessor, RAM, and ROM. It is connected to a CAN (controller
+area network) bus and communicates with the DME (digital motor electronics,
+engine computer) for throttle opening position commands. It also connects to
+two throttle position sensors, one at each end of the throttle rail, which
+provide throttle opening position data for feedback control. The throttle
+actuator incorporates a DC (direct current) brush motor and two stepdown gears
+for throttle opening physical control. The DC motor is driven by 2 sets of
+transistor banks, each consisting of 2 power transistors connected in series,
+to drive the motor rotationally and counter rotationally. A PWM (pulse width
+modulation) signal is used to drive the motor. A PWM signal is a square wave.
+The high pulse turns the motor rotationally, and the low pulse turns the motor
+counter rotationally. The frequency (cycle time) of the PWM signal is
+undocumented. Modulation (changing) of the PWM (square wave) signal duty cycle (length
+of the pulses) controls the rotational / counter rotational position of the
+motor and in turn the throttle rail and throttles open position.<br>
+<br>
+The S65/S85 throttle actuator experiences multiple failures and has an expected
+life of ~70k miles.<br>
+<br>
+A primary failure of the throttle actuator is wearing step down plastic gear
+teeth. The gears are made from PPA (Polyphthalamide) plastic with fillers. The
+combination of load from the throttle springs and vibration from the engine
+causes the plastic gears teeth to press on each other with high force and rub.
+This high force contact and rubbing movement causes significant gear teeth wear
+and eventual gear function failure.<br>
+<br>
+One of the two primary throttle actuator electronic failures is the PC (printed
+circuit) board voltage regulator IC (integrated circuit, chip), which provides board
+input voltage level stabilization (normalization). This voltage regulator IC is
+a problematic part which degrades and eventually fails. It causes relative slow
+function of the throttle actuator as it degrades, and full throttle actuator failure
+once it fully fails. It can also cause the EEPROM and CAN bus driver power transistor
+to fail.<br>
+<br>
+The second primary electronics failure is the PC board DC motor driving power
+transistors. The transistors failure is due to high voltage spikes from the DC
+motor that occur when the motor driving polarity is reversed by the PWM signal,
+ie rotation / counter rotation reversal. The throttle actuator has circuity to dampen
+the voltage spikes. This includes a large capacitor located under the plastic
+cover bulge on the outer side of the throttle actuator cover. Although the circuity
+and capacitor are sufficient to protect the power transistors during “normal”
+function, the voltage spikes from the motor increase beyond the capabilities of
+the circuitry and capacitor and this exposes the transistors to voltage spikes
+that eventually cause them to fail. The cause of the higher voltage spikes is buildup
+of carbon dust from wearing motor brushes that interferes with the contact of
+the motor brushes to the motor commutator and increases the contact resistance.<br>
+<br>
+A more rare failure is DC motor internal brush housing plastic melting. This
+occurs from high heat generated from brush carbon dust buildup and electricity.
+When this occurs, the DC motor can malfunction. If a PC board lead DC motor
+power transistor is darkened (burnt out), then there is a chance that DC motor brush
+housing plastic melting has occurred.<br>
+<br>
+Lastly, the DC motor brushes wear and are not replaceable. But indications are
+the brushes wear slowly and will last the lifespan of the car.<br>
+<br>
+New throttle actuator gears with shaft can be acquired from Beisan System, <a
+href="http://www.beisansystems.com">www.beisansystems.com</a>. The gears are
+made from powder metal steel that is sintered and hardened to 55 HRC (bearing
+steel hardness). They have a surface alloy finish from tempering that deters
+rusting. The half gear has a pressed in stainless steel shaft that is hardened
+to 50 HRC and has a ground surface finish. The gears’ hardened steel is over
+engineered for the throttle actuator application, and thus the gear teeth should
+never wear. The stainless steel shaft is made from the same stainless steel,
+and is hardened to the same hardness, as the OE (original equipment) shaft, and
+should never wear.<br>
+<br>
+A throttle actuator electronics rebuild service is provided by Bimmer Throttle
+Repair, <a href="http://www.bimmerthrottlerepair.com">www.bimmerthrottlerepair.com</a>.
+The following tests and repairs are performed. The DC motor driving 4 power
+transistors are replaced with new OE (original equipment) transistors. The
+voltage regulator is replaced with a new redesigned version of the OE voltage
+regulator that addresses the degradation and failure. The rebuilt electronics
+are then tested and assessed on an S65 engine test bed. If the EEPROM is
+failed, it is replaced with a new OE EEPROM. If the CAN bus transistor is
+failed, it is replaced with a new OE CAN bus transistor. These repairs and
+tests and further repairs address 99.9% of electronics failures. If the
+electronics are still not functioning after the repairs, the customer is
+contacted and offered replacement rebuilt electronics for an additional $70.<br>
+<br>
+This procedure shows how to clean the DC motor to remove the brush carbon dust
+and prevent the PC board power transistors from failing and brushes plastic
+housing from melting. It also shows how to test the motor continuity to check
+for internal melted brushes housing plastic. The DC motor brush length is also inspected
+to estimate the remaining life of the brushes and motor.<br>
+<br>
+The throttle actuator DC motor will need to be cleaned every 60k miles (100k
+km) to remove the brushes carbon dust buildup and prevent potential damage to
+the PC board DC motor power transistors and DC motor brushes plastic housing.<br>
+<br>
+</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Symptoms</span></b><br>
+<br>
+</p>
+
+<p class=MsoNormal>Limp mode, loss of power, DSC and EML lights<br>
+<br>
+</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Diagnosis</span></b><br>
+<br>
+One or more of the following fault codes:<br>
+P0638 (2B15): Throttle Actuator Control Range/Performance Bank 1<br>
+P0639 (2B16): Throttle Actuator Control Range/Performance Bank 2<br>
+2B21: Throttle Valve Actuator Pre-drive Check Bank 1<br>
+2B22: Throttle Valve Actuator Pre-drive Check Bank 2<br>
+2B25: Throttle Valve Monitoring Bank 1<br>
+2B26: Throttle Valve Monitoring Bank 2<br>
+<br>
+</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Repair Procedure</span></b><br>
+<br>
+</p>
+
+<p class=MsoNormal>The following is an E9X/E60 M3/M5 throttle actuators rebuild
+R&amp;R (remove and replace) procedure.<br>
+<br>
+Repair time: 3 hours mechanic, 4+ hours DIY.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u><span style='font-size:14.0pt'>Parts, Tools, and Shop
+Supplies</span></u><br>
+<br>
+</p>
+
+<p class=MsoNormal>Parts with part number pattern xx-xx-x-xxx-xxx are BMW parts
+and can be acquired from a BMW dealership.<br>
+Beisan Systems only provides the throttle actuator gears and throttle actuator
+press nut.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image001.jpg"><br>
+2 x S65/S85 throttle actuator gears (BS101) $120/each (www.beisansystems.com), S65/S85
+throttle actuator press nut (BS191) $10/each (www.beisansystems.com)<br>
+<br>
+Note: Gears are made from highly hardened steel. Gold color is an alloy surface
+finish.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image002.jpg"><br>
+2 x S65/S85 throttle actuator electronics rebuild and test service $70/each (www.bimmerthrottlerepair.com)<br>
+Note: Only offered for US and Canada customers.<br>
+<br>
+Electronics rebuild service is a must due to degrading and chronically failing
+voltage regulator IC. All throttle actuators will experience this degradation
+and failure.<br>
+Electronics (throttle actuator cover) are sent to Bimmer Throttle Repair for a
+one day rebuild and test service.<br>
+<br>
+Bimmer Throttle Repair performs following work.<br>
+Replace 4 DC motor driving power transistors with new OE (original equipment)
+transistors.<br>
+Replace voltage regulator with new version of OE voltage regulator, which
+addresses degradation and failure.<br>
+Replace EEPROM with new OE EEPROM.<br>
+Replace CAN bus transistor with new OE CAN bus transistor.<br>
+Test electronics on S65 engine test bed.<br>
+If electronics is failed (&lt; .1% of cases), customer is contacted and offered
+replacement rebuilt electronics for additional $70.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image003.jpg"><br>
+16mm socket 3/8”, 13mm socket 3/8”, T30 torx bit socket 1/4&quot;, 3/8” to 1/4”
+socket adapter<br>
+3/8” short-arm ratchet<br>
+3/8” torque wrench (8 Nm [6 ft-lb]), 14 Nm [10 ft-lb]) (not shown)<br>
+Metric feeler gauges, including range .30-.40 mm (not shown)<br>
+2 lb handheld sledgehammer<br>
+<br>
+Note: Torque wrench is not necessary as needed small torque values are not
+critical and can be assessed by feel.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image004.jpg"><br>
+Digital caliper, digital multimeter, alligator clip wires<br>
+<br>
+Note: Tools are needed to assess DC motor</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image005.jpg"><br>
+Paper towels, water based cleaner (simple green 10:1), brake cleaner<br>
+Flat wood (1”x4”x5.5”), synthetic grease non-separating non-gumming (Super
+Lube), oil lubricant w/ dropper (3-in-one), cotton swabs, parts plate<br>
+<br>
+</p>
+
+<p class=MsoNormal><u><span style='font-size:14.0pt'>Repair</span></u><br>
+<br>
+</p>
+
+<p class=MsoNormal>Removal and installation of throttle actuators on car will
+be documented in future revision.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u><span style='font-size:14.0pt'>Rebuilding of throttle
+actuators</span></u><br>
+<br>
+</p>
+
+<p class=MsoNormal>Perform following work on table to prevent parts from falling
+and being damaged.<br>
+<br>
+Perform following throttle actuator rebuild for each throttle actuator.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u>Disassembly of throttle actuator</u></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image006.jpg"><br>
+Spray clean throttle actuator external body (brake cleaner / towels).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image007.jpg"><br>
+Rotate throttle actuator shaft arm through full rotation range to get sense of
+operation.<br>
+Partially rotate shaft arm and wiggle arm to get sense of gears teeth fit.<br>
+Push/pull shaft in/out of throttle actuator to get sense of play (space) of
+shaft fit in throttle actuator.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image008.jpg"><br>
+Remove throttle actuator cover mounting bolts.<br>
+Remove 5 bolts (T20 torx bit socket 1/4&quot; w/ 3/8” to 1/4” socket adapter / 3/8”
+ratchet).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image009.jpg"><br>
+Remove throttle actuator cover.<br>
+Pull cover off from electrical connector and remove.<br>
+<br>
+Note: Tiny black plastic grommet will be torn off and removed. This part is not
+needed and can be discarded.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image010.jpg"><br>
+Remove combo gear from throttle actuator.<br>
+Pull combo gear straight off mounting shaft.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image011.jpg"><br>
+Visually inspect throttle actuator shaft arm, mounting nut, and associate
+washers.<br>
+Arm ball is oriented to side and rear of throttle actuator.<br>
+Two small washers are located between mounting nut and arm.<br>
+Thick press washer is located between arm and throttle actuator housing.<br>
+Small thin washer is located between thick press washer and throttle actuator
+housing.<br>
+These parts will be removed in following steps.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image012.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image013.jpg"><br>
+Remove shaft mounting nut.<br>
+Remove nut (13mm hex socket 3/8&quot; / 3/8” ratchet).<br>
+Note: Rotate shaft arm to end of rotation range, then press down on arm ball on
+table and break nut seize. Place pad under arm ball (flat wood).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image014.jpg"><br>
+Remove shaft two small ribbed washers.<br>
+Pull washers off shaft.<br>
+<br>
+Note: Washers tight ribbed side is oriented one to arm and one to mounting nut.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image015.jpg"><br>
+Remove shaft arm.<br>
+Pull arm off shaft.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image016.jpg"><br>
+Remove thick press washer from shaft.<br>
+Place throttle actuator on flat surface with shaft pointing up (flat wood /
+ground).<br>
+Moderately strike shaft end multiple times into throttle actuator until thick press
+washer is removed from shaft (2lb handheld sledgehammer).<br>
+<br>
+Note: Perform work on very solid surface or ground.<br>
+Note: Shaft will be pushed into throttle actuator and thick press washer and small
+thin washer will fall off throttle actuator.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image017.jpg"><br>
+Collect fallen thick press washer and small thin washer.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image018.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image019.jpg"><br>
+Remove half gear with shaft.<br>
+Rotate half gear counter-clockwise to release spring hook from half gear slot, then
+pull half gear and shaft straight out of throttle actuator.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image020.jpg"><br>
+Remove large thin washer from half gear shaft.<br>
+Pull washer straight off shaft.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image021.jpg"><br>
+Remove DC motor 2 mounting bolts.<br>
+Remove 2 bolts (T20 torx bit socket 1/4&quot; w/ 3/8” to 1/4” socket adapter /
+3/8” ratchet).<br>
+<br>
+Note: Once bolts removed, notice DC motor bracket bolt holes are pressed onto
+throttle actuator mounting studs.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image022.jpg"><br>
+Dislodge DC motor from throttle actuator housing.<br>
+Hit throttle actuator with open face down on flat surface (flat wood).<br>
+Repeat hit until DC motor dislodges from throttle actuator housing.<br>
+<br>
+Note: DC motor bracket is press fit onto throttle actuator housing and requires
+some force to dislodge.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image023.jpg"><br>
+Remove DC motor and half gear spring.<br>
+Pull dislodged DC motor and spring straight out of throttle actuator.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image024.jpg"><br>
+Throttle actuator housing is now empty.<br>
+<br>
+Note: Throttle actuator housing is normally dirty with black dust from the DC
+motor carbon brushes.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u>Cleaning and inspection of throttle actuator components</u><br>
+<br>
+</p>
+
+<p class=MsoNormal>Discard throttle actuator gears, as they will be replaced.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image025.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image026.jpg"><br>
+Spray clean all throttle actuator components, except electronics/cover (brake
+cleaner / towels).<br>
+Be sure to clean both radial roller bearings, which mount half gear shaft, in
+throttle actuator housing.<br>
+Note: Also spray clean new gears and shaft as they can have residue.<br>
+<br>
+Spray cleaner into DC motor from both end available openings until cleaner runs
+clear from motor (brake cleaner). Black residue from motor is brush carbon
+dust.<br>
+Motor top end (gear end) opening is adjacent to one brush on outer side (picture
+below).<br>
+Motor bottom end opening is small hole at bottom face.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image027.jpg"><br>
+<span style='color:red'>Caution: DC motor must be cleaned per above
+instructions before performing following test.</span><br>
+Test DC motor continuity.<br>
+Clamp digital multimeter probes w/ alligator clip wires onto DC motor prongs.<br>
+Turn on digital multimeter and set to low ohms (resistance).<br>
+Turn DC motor gear slowly and note digital multimeter ohm reading.<br>
+Reading will fluctuate as gear is turned.<br>
+Reading should be .5-3 ohm range.<br>
+<br>
+If DC motor resistance reading is high, then DC motor likely has internal
+damage from melted brush housing plastic and must be replaced. Contact Beisan
+Systems for possible options.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image028.jpg"><br>
+Inspect DC motor brushes length.<br>
+Measure, in mm, depth of 2 brushes in motor housing (digital caliper).<br>
+Open caliper jaws, then place caliper end extending rod on brush end and push
+down on caliper until caliper end mates with motor housing. Caliper reading is
+brush end depth from motor housing.<br>
+Subtract 4.5mm from measured depth value to remove motor housing thickness
+(2.5mm) and original (new) brush depth in plastic housing (2mm).<br>
+Remaining depth value is brush length wear.<br>
+<br>
+Carbon brush length when new is 10mm.<br>
+Remaining brush is 10mm – brush length wear.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image029.jpg"><br>
+Inspect throttle actuator electronics.<br>
+4 IC chips with 2 pins each adjacent to DC motor prong sockets (picture top
+left) are DC motor power transistors.<br>
+IC with 2 double pins (picture bottom center edge) is problematic voltage
+regulator.<br>
+Small 8 pin IC adjacent to voltage regulator is EEPROM (picture just left and
+above of voltage regulator).<br>
+2 pin IC adjacent to connector (picture right bottom) is CAN bus driver power
+transistor.<br>
+Thick brown coating on electronics is conformal coating. It provides protection
+from corrosion, electrical shorting from debris, and solder cracking from
+vibration.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u>Assembly of throttle actuator</u></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image030.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image031.jpg"><br>
+Oil DC motor shaft radial bearings.<br>
+Place 1 drop of oil at each end of DC motor shaft (oil lubricant).<br>
+Rotate DC motor gear to work lubricant into radial bearings.<br>
+Wipe off excess oil (towels).<br>
+<br>
+Note: DC motor gear is mounted on DC motor shaft. Place oil under gear and
+trickle into radial bearing under gear.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image032.jpg"><br>
+Apply grease to DC motor gear teeth.<br>
+Apply light layer of grease to gear teeth (bearing grease / cotton swab).<br>
+<br>
+Note: Apply grease onto applicator, then swipe applicator along each tooth
+valley.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image033.jpg"><br>
+Insert DC motor into throttle actuator.<br>
+Orient DC motor with prongs at bottom and bolt mounting holes aligned to throttle
+actuator bolt mounting holes (picture).<br>
+<br>
+Note: DC motor will be pressed into throttle actuator in following step.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image034.jpg"><br>
+Install DC motor mounting bolts.<br>
+Install 2 bolts (T20 torx bit socket 1/4&quot; w/ 3/8” to 1/4” socket adapter /
+3/8” ratchet)<br>
+Once bolts mate with DC motor, tighten bolts evenly in multiple passes to
+evenly press DC motor bracket bolt holes onto throttle actuator housing mounting
+studs.<br>
+<br>
+Fully tighten, 8 Nm (6 ft-lb) (T20 torx bit socket 1/4&quot; w/ 3/8” to 1/4”
+socket adapter / 3/8” torque wrench).<br>
+Note: Hand snug w/ ratchet. Torque wrench not necessary.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image035.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image036.jpg"><br>
+Apply grease to throttle actuator radial bearings and adjacent face surfaces.<br>
+Apply light layer of grease to 2 radial bearings (holes inner surface) and
+adjacent face surfaces (grease / cotton swab).<br>
+<br>
+Note: Apply grease onto applicator, then roll applicator over radial bearing
+rollers.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image037.jpg"><br>
+Apply grease to half gear teeth.<br>
+Apply light layer of grease to gear teeth (grease / cotton swab).<br>
+<br>
+Note: Apply grease onto applicator, then swipe applicator along each tooth
+valley.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image038.jpg"><br>
+Apply grease to half gear shaft and gear base.<br>
+Apply light layer of grease to shaft and half gear base face adjacent to shaft
+(grease / cotton swab).<br>
+Do not grease shaft threads and flats section and ~10mm (~1/2”) of shaft past
+threads base (picture).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image039.jpg"><br>
+Apply grease to large thin washer and install onto half gear shaft.<br>
+Apply light layer of grease to washer faces (grease / cotton swab).<br>
+Install washer onto half gear shaft and slide washer up to half gear.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image040.jpg"><br>
+Install spring in throttle actuator.<br>
+Orient spring with 90 degree bend end to throttle actuator and rotate spring to
+align bend end with slot in throttle actuator (picture).<br>
+Insert spring into throttle actuator.<br>
+<br>
+Note: Spring will only insert slightly into throttle actuator.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image041.jpg"><br>
+Install spring further into throttle actuator.<br>
+Coil (wind) spring, from hook end, ~1 rotation while pressing spring into
+throttle actuator.<br>
+Spring will insert slightly further into throttle actuator, and spring hook end
+will be positioned further clockwise (picture).<br>
+<br>
+Note: This step is performed to further insert spring and prevent it from
+falling out of throttle actuator.<br>
+Note: Exact amount of spring insertion and rotational position of spring hook end
+does not need to be precise. Spring will be fully installed in upcoming step.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image042.jpg"><br>
+Install half gear and shaft with large thin washer into throttle actuator.<br>
+Note position of spring hook end in throttle actuator housing.<br>
+Align half gear shaft end with throttle actuator radial bearing (hole) and
+insert shaft into radial bearing.<br>
+Insert half gear and shaft into throttle actuator housing until half gear butts
+with spring.<br>
+As needed, rotate half gear counter-clockwise until spring hook appears at side
+of half gear (picture).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image043.jpg"><br>
+Insert spring hook end into half gear slot.<br>
+Press in on spring hook end and slide behind half gear.<br>
+Rotate half gear clockwise ~1/2”, while pressing spring hook to center
+slightly, until spring hook insets into half gear slot (picture).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image044.jpg"><br>
+Coil (wind) spring, and fully insert half gear into throttle actuator.<br>
+Rotate half gear clockwise ~1 1/4 rotation against spring tension until half
+gear side is past housing gear stop ledge.<br>
+Then push half gear further into housing and release to allow half gear side to
+rest on housing gear stop ledge.<br>
+Note: Pull half gear out some to allow full rotation of half gear without
+hitting housing gear stop ledge.<br>
+<br>
+Note: Spring is now coiled to a smaller size and is fully inserted into
+housing.<br>
+<br>
+Note: Pay attention in following steps to maintain half gear in mounted
+position, as it can easily slip out.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image045.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image046.jpg"><br>
+Apply grease to small thin washer and install onto shaft.<br>
+Apply light layer of grease to washer faces (grease / cotton swab).<br>
+Install washer onto shaft and slide washer up to throttle actuator housing.<br>
+<br>
+Note: Press on half gear in throttle actuator to prevent it from dislodging
+(fingers).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image047.jpg"><br>
+Mount thick press washer onto shaft.<br>
+Apply thin layer of grease to one face of thick washer.<br>
+Mount thick washer, greased face first, onto shaft wide diameter edge.<br>
+<br>
+Note: Press on half gear in throttle actuator to prevent it from dislodging
+(fingers).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image048.jpg"><br>
+Install press nut.<br>
+Thread press nut, inner recess side first, onto shaft, and up to thick press washer
+(fingers).<br>
+Note: Press nut will be difficult to initially thread onto shaft due to minimal
+shaft threads. Position press nut perfectly perpendicular to shaft to ease initial
+threading.<br>
+<br>
+Note: Press on half gear in throttle actuator to prevent it from dislodging.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image049.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image050.jpg"><br>
+Press thick press washer onto shaft.<br>
+Tighten press nut to press washer onto shaft (16mm hex socket 3/8&quot; / 3/8”
+ratchet).<br>
+Tighten press nut until stop. Do not further tighten.<br>
+<br>
+Note: Washer press takes minimal force.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image051.jpg"><br>
+Remove press nut form shaft (16mm hex socket 3/8&quot; / 3/8” ratchet).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image052.jpg"><br>
+Attempt to rotate half gear (finger) and note binding and lack of free
+rotation.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image053.jpg"><br>
+Slightly retard (un-press) thick press washer on shaft to resolve binding and
+allow gear/shaft rotation.<br>
+Place throttle actuator on flat surface with shaft pointing up (flat wood).<br>
+Lightly tap shaft end into throttle actuator (2lb handheld sledgehammer).<br>
+<br>
+Note: Only slight retard of thick press washer on shaft is needed to release
+binding.</p>
+
+<p class=MsoNormal><br>
+<br>
+</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image052.jpg"><br>
+Verify half gear rotates freely through full range of rotation without binding (finger).<br>
+<br>
+If half gear is binding, repeat above step of slightly retarding thick washer,
+and check binding again.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image054.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image055.jpg"><br>
+Check and adjust space between thick press washer and small thin washer.<br>
+Pull shaft from throttle actuator.<br>
+Measure space between thick press washer and small thin washer (feeler gauges).<br>
+Adjust thick press washer position, by pressing or un-pressing per above steps,
+to achieve ~.35mm space.<br>
+Available feeler gauge smaller than .35mm should fit in space, and available
+feeler gauge larger than .35mm should not fit in space (pictures).<br>
+<br>
+Note: ~.35mm space is needed to prevent binding and allow gear/shaft rotation,
+but also prevent excessive gear/shaft axial (in/out) movement.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image056.jpg"><br>
+Install shaft arm onto shaft.<br>
+Orient shaft arm with ball to side and rear of throttle actuator (picture), and
+slide arm slot onto shaft end flats.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image057.jpg"><br>
+Install 2 small ribbed washers onto shaft.<br>
+Place first washer with tight ribbed side towards shaft arm (picture).<br>
+Place second washer with tight ribbed side away from shaft arm (picture).<br>
+Note: Washers are Nord-Lock washers and prevent nut, mounted in following step,
+from coming loose.<br>
+<br>
+<span style='color:red'>Caution: If washers are not oriented correctly, nut,
+mounted in following step, will come loose from engine vibration.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image058.jpg"><br>
+Install shaft mounting nut.<br>
+Thread nut onto shaft with face inscription side away from arm.<br>
+Note: Nut will be difficult to initially thread onto shaft due to minimal shaft
+threads. Position nut perfectly perpendicular to shaft to ease initial
+threading.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image059.jpg"><br>
+Tighten shaft mounting nut.<br>
+Tighten nut (13mm hex socket 3/8&quot; / 3/8” ratchet).<br>
+Fully tighten, 14 Nm (10 ft-lb) (13mm hex socket 3/8&quot; / 3/8” torque wrench).<br>
+Note: Moderately tighten w/ ratchet. Torque wrench not necessary.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image060.jpg"><br>
+Apply grease to throttle actuator combo gear mounting shaft and base surface.<br>
+Apply light layer of grease to mounting shaft and base surface (grease / cotton
+swab).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image061.jpg"><br>
+Apply grease to combo gear teeth.<br>
+Apply light layer of grease to gear small and large diameter teeth and small
+gear end surface (grease / cotton swab).<br>
+<br>
+Note: Apply grease onto applicator, then swipe applicator along each tooth
+valley.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image062.jpg"><br>
+Install combo gear.<br>
+Insert combo gear, small gear side first, onto throttle actuator mounting shaft.<br>
+Slightly rotate combo gear to fully insert and mate teeth with DC motor gear
+teeth and half gear teeth (picture).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image007.jpg"><br>
+Exercise throttle actuator mechanical operation.<br>
+Note: Do not tilt throttle actuator opening down as combo gear can fall out.<br>
+Rotate throttle actuator arm through full rotation range and monitor movement
+of gears in throttle actuator.<br>
+Repeat shaft arm rotation multiple times to disperse gear teeth grease and achieve
+smooth operation.<br>
+Wipe off visible excess grease from gear teeth ends (towels).<br>
+Partially rotate shaft arm and wiggle arm to get sense of gears teeth fit.<br>
+<br>
+Slowly rotate throttle actuator arm through full rotation range and note any
+gears binding. If binding is found, contact Beisan System.<br>
+<br>
+Throttle actuator electronics/cover will be installed once rebuilt electronics
+are received.<br>
+<br>
+</p>
+
+<p class=MsoNormal>Repeat throttle actuator rebuild for second throttle
+actuator.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u>Send electronics for rebuild and test service<br>
+<br>
+</u></p>
+
+<p class=MsoNormal>Purchase 2 x S65/S85 throttle actuator electronics rebuild and
+test service $70/each (<a href="http://www.bimmerthrottlerepair.com">www.bimmerthrottlerepair.com</a>).<br>
+Note: Only offered for US and Canada customers.<br>
+Package and ship 2 x throttle actuator electronics/cover to Bimmer Throttle
+Repair.<br>
+Wrap parts well to prevent damage, and ship with tracking service.<br>
+Ex, USPS Priority medium flat rate box.<br>
+<br>
+Bimmer Throttle Repair<br>
+3305 Forest Mill Circle<br>
+Raleigh, NC 27616<br>
+<br>
+</p>
+
+<p class=MsoNormal><u>Installation of electronics/cover</u><br>
+<br>
+</p>
+
+<p class=MsoNormal><span style='color:red'>Warning: DC motor must be cleaned
+per above cleaning instructions. Otherwise new electronics will shortly fail.</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>Once electronics are received from rebuild and test service,
+perform throttle electronics/cover installation.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image063.jpg"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image064.jpg"><br>
+Install throttle actuator electronics/cover.<br>
+Orient cover to throttle actuator housing.<br>
+Orient throttle actuator with DC motor prongs and electronics prong sockets at
+bottom, and throttle housing to front and cover to rear (picture).<br>
+Insert electronics prong sockets onto DC motor prongs.<br>
+Fully mate cover onto throttle actuator housing.<br>
+<br>
+Note: Bend DC motor prongs as needed to align with electronics prong sockets.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=512 height=384
+src="s65_s85_throttle_actuator_procedure_files/image065.jpg"><br>
+Install throttle actuator cover mounting bolts.<br>
+Mount 5 bolts onto cover (T20 torx bit socket 1/4&quot; w/ 3/8” to 1/4” socket
+adapter / 3/8” ratchet).<br>
+Tighten bolts in multiple passes to evenly tighten.<br>
+<br>
+Fully tighten, 8 Nm (6 ft-lb) (T20 torx bit socket 1/4&quot; w/ 3/8” to 1/4”
+socket adapter / 3/8” torque wrench).<br>
+Note: Hand snug w/ ratchet. Torque wrench not necessary.<br>
+<br>
+Check mechanical operation of throttle actuator by rotating shaft arm through
+its full range of rotation.<br>
+<br>
+</p>
+
+<p class=MsoNormal>Repeat electronics/cover installation for second throttle
+actuator.<br>
+<br>
+</p>
+
+<p class=MsoNormal><u><span style='font-size:14.0pt'>Post repair procedures</span></u><br>
+<br>
+</p>
+
+<p class=MsoNormal><span style='color:red'>DC motor must be cleaned every 60k
+miles (100k km) to remove brushes carbon dust to prevent electronics from
+failing.</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>© Copyright 2022 Beisan Systems, LLC<br>
+<br>
+</p>
+
+</div>
+
+</body>
+
+</html>
